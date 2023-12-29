@@ -3,11 +3,11 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 export class Business {
   @PrimaryGeneratedColumn('uuid')
   id: string;
-  @Column('text')
+  @Column('varchar', { unique: true })
   name: string;
-  @Column('integer')
+  @Column('integer', { nullable: true })
   nit: number;
-  @Column('text')
+  @Column('text', { nullable: true })
   mail: string;
   @Column('bool', { default: true })
   isActive?: boolean;
