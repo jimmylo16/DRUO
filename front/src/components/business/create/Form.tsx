@@ -2,8 +2,10 @@ import { useState } from "react";
 import { axiosCall } from "../../../infraestructure/axios";
 import { AxiosError } from "axios";
 import { Input } from "./Input";
+import { useNavigate } from "react-router-dom";
 
 export const Form = () => {
+  const navigation = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     nit: "",
@@ -26,13 +28,13 @@ export const Form = () => {
           nit: +formData.nit,
         },
       });
+      navigation("/negocios");
     } catch (error: any) {
       const backendError = error as AxiosError<{
         error: string;
         message: string[];
         statusCode: number;
       }>;
-      console.log(backendError.response?.data);
       const messages = backendError.response?.data.message;
       setErrors(messages);
     }

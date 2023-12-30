@@ -6,7 +6,6 @@ export const SideBar = () => {
   const handleOnClick = (route: string) => {
     navigation(route);
   };
-  console.log(location.pathname);
   return (
     <section className="h-full overflow-auto fixed z-10 w-[16%]  border border-gray-600">
       <div className="flex flex-col mt-10 gap-4">

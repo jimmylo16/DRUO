@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Layout } from "./components/layout/Layout";
-import { BusinesRoute, Redirect } from "./routes";
+import { BusinesRoute, BusinessListRoute, Redirect } from "./routes";
 
 const router = createBrowserRouter([
   {
@@ -28,7 +28,7 @@ const router = createBrowserRouter([
     path: "/negocios",
     element: (
       <Layout>
-        <BusinesRoute />
+        <BusinessListRoute />
       </Layout>
     ),
     children: [],
