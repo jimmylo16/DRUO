@@ -1,4 +1,6 @@
 import {
+  HttpException,
+  HttpStatus,
   Injectable,
   InternalServerErrorException,
   NotFoundException,
@@ -17,6 +19,21 @@ export class BusinessService {
     private businessRepository: Repository<Business>,
   ) {}
   async create(createBusinessDto: CreateBusinessDto) {
+    const findedBusiness = await this.businessRepository.findOneBy({
+      name: createBusinessDto.name,
+    });
+    if (findedBusiness) {
+      throw new HttpException(
+        {
+          status: HttpStatus.FORBIDDEN,
+          message: ['El negocio con el nombre dado ya existe'],
+        },
+        HttpStatus.FORBIDDEN,
+        {
+          cause: 'El negocio con el nombre dado ya existe',
+        },
+      );
+    }
     try {
       const business = this.businessRepository.create({
         ...createBusinessDto,
