@@ -1,13 +1,13 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import "./index.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Layout } from "./components/layout/Layout";
-import { BusinesRoute, BusinessListRoute, Redirect } from "./routes";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { Layout } from './components/layout/Layout';
+import { BusinesRoute, BusinessListRoute, Redirect } from './routes';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: (
       <Layout>
         <Redirect />
@@ -16,7 +16,7 @@ const router = createBrowserRouter([
     children: [],
   },
   {
-    path: "/negocios/crear",
+    path: '/negocios/crear',
     element: (
       <Layout>
         <BusinesRoute />
@@ -25,7 +25,7 @@ const router = createBrowserRouter([
     children: [],
   },
   {
-    path: "/negocios",
+    path: '/negocios',
     element: (
       <Layout>
         <BusinessListRoute />
@@ -34,8 +34,8 @@ const router = createBrowserRouter([
     children: [],
   },
 ]);
-ReactDOM.createRoot(document.getElementById("root")!).render(
+ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <RouterProvider router={router} />
-  </React.StrictMode>
+  </React.StrictMode>,
 );

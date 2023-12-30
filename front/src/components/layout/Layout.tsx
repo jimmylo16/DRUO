@@ -1,8 +1,8 @@
-import { SideBar } from "./SideBar";
+import { SideBar } from './SideBar';
 
-type LayoutProps = {
+interface LayoutProps {
   children: React.ReactNode;
-};
+}
 
 export const Layout = ({ children }: LayoutProps) => {
   return (

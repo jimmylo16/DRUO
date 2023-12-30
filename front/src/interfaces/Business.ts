@@ -4,7 +4,7 @@ export interface BackendResponse<T> {
   statusCode: number;
 }
 export interface BusinessList {
-  id: string;
+  id: number;
   name: string;
   nit: number;
   mail: string;

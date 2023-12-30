@@ -23,6 +23,7 @@ export const Input = ({
         <input
           className="border border-gray-600 w-3/4"
           onChange={handleChange}
+          data-testid={name}
           name={name}
           value={value}
           type={type}

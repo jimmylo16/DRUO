@@ -1,15 +1,15 @@
-import { useState } from "react";
-import { axiosCall } from "../../../infraestructure/axios";
-import { AxiosError } from "axios";
-import { Input } from "./Input";
-import { useNavigate } from "react-router-dom";
+import { useState } from 'react';
+import { axiosCall } from '../../../infraestructure/axios';
+import { AxiosError } from 'axios';
+import { Input } from './Input';
+import { useNavigate } from 'react-router-dom';
 
 export const Form = () => {
   const navigation = useNavigate();
   const [formData, setFormData] = useState({
-    name: "",
-    nit: "",
-    mail: "",
+    name: '',
+    nit: '',
+    mail: '',
   });
   const [errors, setErrors] = useState<string[]>();
 
@@ -21,14 +21,14 @@ export const Form = () => {
     e.preventDefault();
     try {
       await axiosCall({
-        method: "post",
-        endpoint: "/business",
+        method: 'post',
+        endpoint: '/business',
         body: {
           ...formData,
           nit: +formData.nit,
         },
       });
-      navigation("/negocios");
+      navigation('/negocios');
     } catch (error: any) {
       const backendError = error as AxiosError<{
         error: string;
@@ -70,7 +70,7 @@ export const Form = () => {
           errors={errors}
         />
         {errors?.map((error, index) => {
-          return error.includes("negocio") ? (
+          return error.includes('negocio') ? (
             <span className="text-red-500 text-right" key={index}>
               {error}
             </span>

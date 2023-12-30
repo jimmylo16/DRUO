@@ -1,8 +1,8 @@
-import { BusinessList } from "../../../interfaces/Business";
+import { BusinessList } from '../../../interfaces/Business';
 
-type TableProps = {
+interface TableProps {
   businessList: BusinessList[] | undefined;
-};
+}
 export const Table = ({ businessList }: TableProps) => {
   return (
     <table className="border border-gray-600 m-8 w-full text-left">
@@ -15,15 +15,14 @@ export const Table = ({ businessList }: TableProps) => {
         </tr>
       </thead>
       <tbody>
-        {businessList &&
-          businessList.map((business) => (
-            <tr key={business.id}>
-              <td className="border border-gray-600">{business.id}</td>
-              <td className="border border-gray-600">{business.name}</td>
-              <td className="border border-gray-600">{business.nit}</td>
-              <td className="border border-gray-600">{business.mail}</td>
-            </tr>
-          ))}
+        {businessList?.map((business) => (
+          <tr key={business.id}>
+            <td className="border border-gray-600">{business.id}</td>
+            <td className="border border-gray-600">{business.name}</td>
+            <td className="border border-gray-600">{business.nit}</td>
+            <td className="border border-gray-600">{business.mail}</td>
+          </tr>
+        ))}
       </tbody>
     </table>
   );

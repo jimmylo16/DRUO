@@ -1,7 +1,7 @@
-import { AxiosInstance } from "axios";
-import { axiosLambdaInstance } from "./backendInstance";
+import { AxiosInstance } from 'axios';
+import { axiosLambdaInstance } from './backendInstance';
 
-export type AxiosMethods = "get" | "post" | "put" | "delete";
+export type AxiosMethods = 'get' | 'post' | 'put' | 'delete';
 interface IAxiosCall {
   method: AxiosMethods;
   endpoint: string;
@@ -44,7 +44,7 @@ export const axiosCall = async <T>({
     const response = await axiosInstance<T>({
       method,
       url,
-      data: body as unknown,
+      data: body,
     });
     return response.data;
   } catch (error: any) {
