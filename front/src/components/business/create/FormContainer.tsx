@@ -1,4 +1,4 @@
-import { Form } from "./create/Form";
+import { Form } from "./Form";
 
 export const BusinessPage = () => {
   return (

@@ -8,24 +8,34 @@ import { BusinesRoute, Redirect } from "./routes";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Redirect />,
+    element: (
+      <Layout>
+        <Redirect />
+      </Layout>
+    ),
     children: [],
   },
   {
     path: "/negocios/crear",
-    element: <BusinesRoute />,
+    element: (
+      <Layout>
+        <BusinesRoute />
+      </Layout>
+    ),
     children: [],
   },
   {
     path: "/negocios",
-    element: <BusinesRoute />,
+    element: (
+      <Layout>
+        <BusinesRoute />
+      </Layout>
+    ),
     children: [],
   },
 ]);
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <Layout>
-      <RouterProvider router={router} />
-    </Layout>
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
